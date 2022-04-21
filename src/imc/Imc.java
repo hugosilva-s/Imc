@@ -5,17 +5,34 @@
  */
 package imc;
 
+import static imc.interpretaIMC.interpretaIMC;
+import java.util.Scanner;
+
 /**
  *
  * @author H
  */
 public class Imc {
-
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        double peso, alt, valorImc;
+        Scanner ler = new Scanner(System.in);
+        
+        System.out.println("Digite o peso corporal (em kg):\n");
+        peso = ler.nextDouble();
+        System.out.printf("\nInforme a altura(em metros ex: 1,77):\n");
+        alt = ler.nextDouble();
+        valorImc = IMC(peso, alt);
+        
+        System.out.printf("\nResultados...:\n");
+        System.out.printf("IMC..............: %.13f\n", valorImc);
+        System.out.printf("Classificação: %s\n", interpretaIMC(valorImc));
     }
+
+    private static double IMC(double peso, double alt) {
+        return(peso / (alt*alt));
+    }
+    
     
 }
